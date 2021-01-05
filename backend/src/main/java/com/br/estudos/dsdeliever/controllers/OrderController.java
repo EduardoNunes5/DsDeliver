@@ -35,4 +35,9 @@ public class OrderController {
 
         return ResponseEntity.created(uri).body(orderService.create(orderDTO));
     }
+
+    @PutMapping("/{id}/delivered")
+    public ResponseEntity<OrderDTO> updateStatusDelivered(@PathVariable Long id) {
+        return ResponseEntity.ok().body(orderService.updateStatusDelivered(id));
+    }
 }
