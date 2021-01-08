@@ -5,7 +5,8 @@
     --primary-color: #da5c5c;
     --primary-hover-color: #a74b4b;
     --dark-color: #263238;
-    --secondary-color: #f5f5f5;
+    --light-color: #f5f5f5;
+    --secondary-color: #9E9E9E;
 }
 
 html, body{
