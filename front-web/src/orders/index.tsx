@@ -47,8 +47,12 @@ function Order(){
           toast.error(`Pedido enviado com sucesso! Nº${response.data.id}`);
           setSelectedProducts([]);
         })
-          .catch(() => {
-            toast.warning('Erro ao enviar pedido');
+          .catch((err) => {
+            if(err.response)
+              toast.warning(err.response.data.message);
+            else{
+              toast.warning('Erro ao enviar pedido');
+            }
           })
       }
 
