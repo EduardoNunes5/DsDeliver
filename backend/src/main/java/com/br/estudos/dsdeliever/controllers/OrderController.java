@@ -2,12 +2,11 @@ package com.br.estudos.dsdeliever.controllers;
 
 import com.br.estudos.dsdeliever.dtos.OrderDTO;
 import com.br.estudos.dsdeliever.services.OrderService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<OrderDTO> create(@RequestBody OrderDTO orderDTO) {
+    public ResponseEntity<OrderDTO> create(@RequestBody @Valid OrderDTO orderDTO) {
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")

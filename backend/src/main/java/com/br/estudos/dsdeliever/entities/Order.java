@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tb_order")
@@ -16,9 +17,14 @@ public class Order implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
+	@NotNull
 	private String address;
+
+	@NotNull
 	private Double latitude;
+
+	@NotNull
 	private Double longitude;
 	private Instant moment;
 	private OrderStatus status;

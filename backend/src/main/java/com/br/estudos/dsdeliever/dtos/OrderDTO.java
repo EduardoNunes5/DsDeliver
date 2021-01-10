@@ -3,6 +3,8 @@ package com.br.estudos.dsdeliever.dtos;
 import com.br.estudos.dsdeliever.entities.Order;
 import com.br.estudos.dsdeliever.entities.OrderStatus;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +14,19 @@ public class OrderDTO {
 
     private Long id;
 
+    @NotNull(message = "endereço é obrigatório")
+    @NotEmpty(message = "endereço é obrigatório")
     private String address;
+    @NotNull(message = "localização (latitude) é obrigatória")
     private Double latitude;
+
+    @NotNull(message = "localização (longitude) é obrigatória")
     private Double longitude;
     private Instant moment;
     private OrderStatus status;
 
+    @NotNull
+    @NotEmpty
     private List<ProductDTO> products = new ArrayList<>();
 
     public OrderDTO(){
